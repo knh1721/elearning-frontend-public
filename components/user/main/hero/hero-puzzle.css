@@ -1,0 +1,144 @@
+hero-puzzle.css
+.bulb-container {
+  position: relative;
+}
+
+.bulb-container::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  border-radius: 0 0 0 70px;
+  z-index: 10;
+}
+
+.bulb-icon {
+  position: relative;
+  top: 50%;
+  left: 0;
+  transform: translate( 55%, -50%); /* ← X축 -120%로 이동 */
+  width: 64px;
+  height: 64px;
+  z-index: 2;
+}
+
+.bulb-container {
+  position: absolute;
+  top: 0; 
+  right: 0;
+  transform: translate(0px, -10px);
+  width: 170px;
+  height: 120px;
+  background: black;
+  border-bottom-left-radius: 30px;
+  overflow: visible;
+}
+
+/* 1) 사각 영역 + top-left corner radius (hero-container 의 30px) */
+.bulb-container::before {
+  content: "";
+  position: absolute;
+  width: 20px;         /* 지름 = 2 × 반지름 */
+  height: 20px;
+  top: 20px;           /* 반지름 만큼 위로 올려서 반만 보이게 */
+  right: 170px;          /* 원하는 수평 위치 */
+  /* 원 내부는 투명, 원 외부(=페이지 배경)만 흰색(또는 실제 배경색)으로 */
+  background: 
+    radial-gradient(
+      circle at bottom left,
+      transparent 20px,    /* 반지름 */
+      black 20px           /* 반지름부터 아래는 흰색 */
+    );
+  z-index: 3;            /* 배경 이미지 위, 텍스트·아이콘 아래 */
+}
+
+
+/* 2) 밑에서 부드럽게 툭 떨어지는 곡선 (radius 70px) */
+.bulb-container::after {
+  content: "";
+  position: absolute;
+  width: 20px;         /* 지름 = 2 × 반지름 */
+  height: 20px;
+  top: 120px;           /* 반지름 만큼 위로 올려서 반만 보이게 */
+  right: 40px; 
+  /* 원 내부는 투명, 원 외부(=페이지 배경)만 흰색(또는 실제 배경색)으로 */
+  background: 
+    radial-gradient(
+      circle at bottom left,
+      transparent 20px,    /* 반지름 */
+      black 20px           /* 반지름부터 아래는 흰색 */
+    );
+  z-index: 3;            /* 배경 이미지 위, 텍스트·아이콘 아래 */
+}
+
+/* 전구는 위에 올라와야 하니까 higher z-index */
+/* .bulb-icon {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px; height: 64px;
+  z-index: 2;
+} */
+
+/*  “자세히 알아보기” 용 wrapper */
+.detail-btn-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(0px, 0px);  /* 전구와 반대 방향으로 offset */
+  
+  width: 340px;     /* 버튼 너비 + 패딩 감안 */
+  height: 80px;     /* 버튼 높이 + 패딩 감안 */
+  background-color: black;
+  
+  /* 왼쪽 아래 코너는 그대로, 오른쪽 위 코너만 둥글게 */
+  border-top-right-radius: 30px;
+  
+  /* 안의 버튼이 wrapper 밖으로 안 튀어나오게 */
+  overflow: visible;
+  z-index: 10;      /* hero-container 위에 올라오도록 */
+}
+
+.detail-btn-container::before {
+  content: "";
+  position: absolute;
+  width: 30px;         /* 지름 = 2 × 반지름 */
+  height: 30px;
+  top: -30px;           /* 반지름 만큼 위로 올려서 반만 보이게 */
+  /* 원 내부는 투명, 원 외부(=페이지 배경)만 흰색(또는 실제 배경색)으로 */
+  background: 
+    radial-gradient(
+      circle at top right,
+      transparent 30px,    /* 반지름 */
+      black 30px           /* 반지름부터 아래는 흰색 */
+    );
+  z-index: 5;            /* 배경 이미지 위, 텍스트·아이콘 아래 */
+}
+
+.detail-btn-container::after {
+  content: "";
+  position: absolute;
+  width: 30px;         /* 지름 = 2 × 반지름 */
+  height: 30px;
+  bottom: 0px;
+  right: -30px;
+  /* 원 내부는 투명, 원 외부(=페이지 배경)만 흰색(또는 실제 배경색)으로 */
+  background: 
+    radial-gradient(
+      circle at top right,
+      transparent 30px,    /* 반지름 */
+      black 30px           /* 반지름부터 아래는 흰색 */
+    );
+  z-index: 5;            /* 배경 이미지 위, 텍스트·아이콘 아래 */
+}
+
+/* 버튼 자체 중앙 정렬 */
+.detail-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

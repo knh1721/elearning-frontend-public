@@ -1,0 +1,127 @@
+/* 대시보드 전용 스타일 */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+  
+  .dashboard-sidebar {
+    position: fixed;
+    inset-y: 0;
+    z-index: 10;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    border-right: 1px solid hsl(var(--border));
+    background-color: hsl(var(--background));
+    transition: all 300ms;
+  }
+  
+  .dashboard-sidebar-collapsed {
+    width: 80px;
+  }
+  
+  .dashboard-sidebar-expanded {
+    width: 280px;
+  }
+  
+  .dashboard-sidebar-header {
+    display: flex;
+    height: 4rem;
+    align-items: center;
+    border-bottom: 1px solid hsl(var(--border));
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .dashboard-sidebar-content {
+    flex: 1;
+    overflow: auto;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .dashboard-sidebar-footer {
+    margin-top: auto;
+    border-top: 1px solid hsl(var(--border));
+    padding: 1rem;
+  }
+  
+  .dashboard-nav {
+    display: grid;
+    place-items: start;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .dashboard-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    transition: all 150ms;
+  }
+  
+  .dashboard-nav-item:hover {
+    background-color: hsl(var(--accent));
+  }
+  
+  .dashboard-nav-item-active {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+  
+  .dashboard-nav-item-collapsed {
+    justify-content: center;
+  }
+  
+  .dashboard-nav-item-inactive {
+    color: hsl(var(--muted-foreground));
+  }
+  
+  .dashboard-main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    transition: all 300ms;
+  }
+  
+  .dashboard-main-collapsed {
+    margin-left: 80px;
+  }
+  
+  .dashboard-main-expanded {
+    margin-left: 280px;
+  }
+  
+  .dashboard-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    height: 4rem;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid hsl(var(--border));
+    background-color: hsl(var(--background));
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .dashboard-content {
+    flex: 1;
+    overflow: auto;
+  }
+  
+  .dashboard-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem;
+  }
+  
