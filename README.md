@@ -7,7 +7,7 @@
 
 ## 🌐 실제 배포 주소
 
-👉 [https://your-elearning-domain.com](https://your-elearning-domain.com)
+👉 [https://learncode24.com](https://learncode24.com)
 
 > 이 레포는 실행되지 않으며, **실제 서비스는 위 도메인에서 확인하실 수 있습니다.**
 
